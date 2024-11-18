@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="wire with method" icon-name="custom:custom23">
+        <div class="slds-m-around_medium" >
+            <div class="slds-var-m-around_medium">
+                <lightning-input label="enter name of account" value={setkey} onchange={handlechange}></lightning-input>
+            </div>
+            <div class="slds-var-m-around_medium">
+                <template if:true={account}>
+
+                    <template for:each={account} for:item="acc">
+                        <lightning-layout key={acc.id} class="slds-var-m-around_medium" >
+                            <lightning-layout-item>
+                            
+                                {acc.Name} {acc.Phone}
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                </template>
+                <template if:true={error}>
+                    <p>{error}</p>
+                    
+                </template>
+
+            </div>
+        </div>
+    </lightning-card>
+</template>

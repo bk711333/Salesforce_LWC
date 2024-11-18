@@ -1,0 +1,78 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+        <lightning-card title="Add new Task">
+            <div class="slds-card__body">
+                <div class="slds-var-p-around_small">
+               <lightning-input type="text" label="Enter Task" required="true"  message-when-value-missing="Task name is required" placeholder="Enter task Name" onchange={Changehandular} value={Taskname} name="Taskname" class="TaskName"></lightning-input>
+               <lightning-input type="date" label="set Due date" placeholder="Ente Due date"  field-level-help="Defult due date is todays date" onchange={Changehandular} value={TaskDate} name="TaskDate"></lightning-input>
+                </div>
+
+                <div class="slds-var-p-around_small">
+                    <lightning-button class="slds-var-p-around_small" label="Reset" variant="brand" onclick={resethanduller}></lightning-button>
+                    <lightning-button class="slds-var-p-around_small" label="Add Task" variant="brand" onclick={addTaskhanduller}></lightning-button>
+                </div>
+            </div>
+        </lightning-card>
+        </div>
+        <div class="slds-col">
+            <lightning-card title="To Do List">
+                <div class="slds-card__body">
+                    
+                    
+                    <template for:each={IncompleteTasks} for:item="currentTask"  for:index="index">
+                       
+                        <div class="slds-var-p-arround_medium slds-box slds-theme_shade incompletebackground" key={currentTask.Taskname} draggable="true" ondragstart={dragstarthandular} data-item={index} >
+                            
+                            
+                                <div class="slds-grid slds-wrap"> 
+                        <div class="slds-col slds-size_8-of-12">
+                            <p class="formatetext">{currentTask.Taskname}</p>
+                            <p><lightning-formatted-date-time value={currentTask.TaskDate} year="2-digit" month="short" day="2-digit" weekday="long"></lightning-formatted-date-time></p>
+                            
+                          </div>
+                          <div class="slds-col slds-size_4-of-12">
+                            <lightning-button-icon icon-name="utility:delete"    variant="brand" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"  onclick={removehandular} name={index}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:check"    variant="brand" alternative-text="Delete"   class="slds-m-left_xx-small" title="check" onclick={addtocompletehandular} name={index}></lightning-button-icon>
+                          </div>
+                          </div>
+                        
+                         
+                        </div>
+                
+                    </template>
+                   
+            </div>
+            </lightning-card>
+        </div>
+        <div class="slds-col">
+            <lightning-card title="Completed Tasks">
+                <div class="slds-card__body ">
+
+                    <template for:each={CompleteTasks} for:item="currentcompleteTask"  for:index="index">
+                       
+                        <div class="slds-box slds-theme_shade slds-var-p-around_small completebg ondragover={allowdrop} ondrop={dropElementHandular}" key={currentcompleteTask.Taskname} >
+                            
+                              
+                                <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_7-of-12">
+                            <p class="formatetext">{currentcompleteTask.Taskname}</p>
+                            <p><lightning-formatted-date-time value={currentcompleteTask.TaskDate} year="2-digit" month="short" day="2-digit" weekday="long"></lightning-formatted-date-time></p>
+                            
+                          </div>
+                          <div class="slds-col slds-size_5-of-12">
+ <!--                 <lightning-button-icon icon-name="utility:delete"    variant="brand" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"  onclick={removehandular} name={index}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:check"    variant="brand" alternative-text="check"   class="slds-m-left_xx-small" title="check" onclick={addtocompletehandular} name={index}></lightning-button-icon> -->
+                          </div>
+                        </div>
+                            
+                        </div>
+                
+                    </template>
+                   
+                </div>
+            </lightning-card>
+        </div>
+        </div>
+    
+</template>

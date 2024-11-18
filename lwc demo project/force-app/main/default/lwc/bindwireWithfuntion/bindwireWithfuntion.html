@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="bind data with wire function" icon-name="custom:custom32">
+        <template if:true={accounts}>
+            <div class="slds-m-around_medium">
+              <template for:each={accounts} for:item="acc">
+                <lightning-layout key={acc.id} class="slds-var-m-around_medium">
+                    <lightning-layout-item>{acc.phone}</lightning-layout-item>
+
+                </lightning-layout>
+              </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

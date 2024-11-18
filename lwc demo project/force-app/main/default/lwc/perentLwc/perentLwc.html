@@ -1,0 +1,21 @@
+<template>
+    <lightning-card class="slds-var-m-around_medium"  title="parent componrnt">
+        <div class="slds-m-around_medium" style="padding :10px" >
+            
+        <div>
+            <p>this message from parent : {message}</p>
+
+            <p>presrent count= {count}</p>
+        </div>
+        <div>
+            <lightning-input class="slds-var-m-around_medium"  label="name" value={message} onchange={handleevent}></lightning-input>
+
+            <lightning-button label="refesh" onclick={refresh}></lightning-button>
+        </div>
+        <div>
+            <c-chiled-lwc onincreasecount={countincrese} ></c-chiled-lwc>
+        </div>
+        </div>
+        
+    </lightning-card>
+</template>

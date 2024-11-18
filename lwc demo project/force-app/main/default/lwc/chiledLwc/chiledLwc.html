@@ -1,0 +1,23 @@
+<template>
+    <lightning-card class="slds-var-m-aroung_medium">
+        <div class="slds-m-around_medium" style="padding :10px" >
+        <p class="slds-m-arround_top" aria-label="text" >HI :{message} {greeting}</p>
+        <div>
+            <lightning-input class="slds-m-arround_mediam" name="name" label="name" value={message} onchange={handleevent}></lightning-input>
+            <lightning-input class="slds-m-arround_mediam" name="greeting" label="Greeting" value={greeting} onchange={handleevent} ></lightning-input>
+           
+        </div>.<br>
+        <div >
+            <lightning-button class="slds-m-arround_mediam" label="submit" onclick={handleClick}></lightning-button>
+            
+        </div>
+
+        <div>
+            <lightning-button label="count++" onclick={handleCount}></lightning-button>
+            <p>child message : {childmessage} </p>
+
+            <p>present time = {timestamp}</p>
+        </div>
+    </div>
+    </lightning-card>
+</template>

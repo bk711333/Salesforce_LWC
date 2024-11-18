@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Create new Account" icon-name="standard:account">
+        <lightning-combobox
+        name="PerentAccount"
+        label="Perent Account"
+        placeholder="Select Perent Account"
+        options={perentaccount}
+        onchange={handleChange} ></lightning-combobox>
+
+        <lightning-input class="slds-var-p-around_medium" label="Account Name" name="AccountName" onchange={handleChange}></lightning-input>
+        
+        <lightning-select class="slds-var-p-around_medium"
+        name="AccountRating"
+        label="Account Rating"
+        options={ratingpicklistvalue.data.value}
+        onchange={handleChange}
+        required ></lightning-select>
+
+
+        <lightning-button label="submit" class="slds-var-p-around_medium" type="submit" onclick={saveRecord}></lightning-button>    </lightning-card>
+</template>

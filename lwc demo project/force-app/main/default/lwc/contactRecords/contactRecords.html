@@ -1,0 +1,15 @@
+<template>
+    <lightning-card class="slds-m-around_medium" title="contact Records" icon-name="custom:custom32">
+        <div class="slds-m-around_medium">
+            <template if:true={contact} >
+                <template for:each={contact} for:item="coc">
+                    <lightning-layout class="slds-m-around_medium" key={coc.id}>
+                        <lightning-layout-item>
+                            {coc.Id} -- {coc.LastName}
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
